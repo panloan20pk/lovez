@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Devpan">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Devpan – Hướng dẫn tạo QR trái tim siêu dễ thương và nhanh chóng.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Hướng dẫn rút gọn link tạo qr trái tim, tạo mã qr tình yêu, devpan">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Devpan – Hướng dẫn tạo QR trái tim">
+    <meta property="og:description" content="Hướng dẫn chi tiết cách tạo mã QR hình trái tim kèm link rút gọn.">
+    <title>Hướng dẫn rút gọn link tạo QR trái tim | Devpan</title>
+
+    <link rel="icon" href="https://raw.githubusercontent.com/lovelys2/anh/refs/heads/main/icon1.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #fff0f5;
+            --primary: #ff477e;
+            --primary-light: #ff7094;
+            --primary-soft: #ffe0e6;
+            --text-main: #4a4a4a;
+            --text-muted: #666666;
+            --card-bg: #ffffff;
+            --shadow-pink: 0 10px 30px rgba(255, 71, 126, 0.14);
+        }
+
+        /* RESET & BASE */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-main);
+            padding: 30px 15px;
+            line-height: 1.65;
+        }
+
+        /* CONTAINER CHÍNH */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* HEADER SECTION */
+        .header-section {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-pink);
+            margin-bottom: 35px;
+            border: 2px solid #fff;
+        }
+
+        h1 {
+            font-family: "Playpen Sans", cursive;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-family: "Playpen Sans", cursive;
+            /* color: var(--primary-light); */
+            color: var(--primary);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        /* BUTTONS & LINKS */
+        .button-area {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 26px;
+            font-size: 15px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            font-weight: 700;
+            font-family: 'Nunito', sans-serif;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 112, 148, 0.3);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff7094, #ff477e);
+        }
+
+        .btn-soft {
+            background: linear-gradient(135deg, #ff9ebb, #ff7094);
+        }
+
+        .btn:hover:not(.disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(255, 71, 126, 0.45);
+        }
+
+        .btn:active:not(.disabled) {
+            transform: translateY(1px);
+        }
+
+        .btn.disabled {
+            background: #e2e2e2;
+            color: #999999;
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            font-family: "Playpen Sans", cursive;
+            font-size: 25px;
+            color: var(--primary);
+            text-align: center;
+            margin: 40px 0 25px;
+            font-weight: 800;
+        }
+
+        /* STEP CARDS */
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .step {
+            background: var(--card-bg);
+            border-radius: 22px;
+            padding: 28px 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .step:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-soft);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .step-badge {
+            background: var(--primary-soft);
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 13px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .step h3 {
+            font-family: "Playpen Sans", cursive;
+            color: var(--primary);
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .step p {
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+
+        .step p b {
+            color: var(--primary);
+        }
+
+        /* Danh sách hướng dẫn con trong bước rút gọn link */
+        .sub-steps {
+            list-style: none;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sub-steps li {
+            /* display: flex; */
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 15.5px;
+            color: var(--text-muted);
+        }
+
+        .sub-steps li span {
+            background: var(--primary);
+            color: white;
+            font-size: 12px;
+            font-weight: 800;
+            min-width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .step-action {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .step img {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            border: 1px solid #f2f2f2;
+            cursor: zoom-in;
+        }
+
+        .step img:hover {
+            transform: scale(1.015);
+        }
+
+        /* SUCCESS CARD */
+        .success-step {
+            text-align: center;
+            background: linear-gradient(135deg, #ff7094, #ff477e);
+            color: white;
+            padding: 32px 20px;
+            border-radius: 22px;
+            box-shadow: 0 8px 25px rgba(255, 71, 126, 0.35);
+        }
+
+        .success-step h3 {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .success-step p {
+            color: rgba(255, 255, 255, 0.92);
+            margin-bottom: 0;
+            font-size: 15px;
+        }
+
+        /* LIGHTBOX XEM ẢNH PHÓNG TO */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.82);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            cursor: zoom-out;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #a0a0a0;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 600px) {
+            body {
+                padding: 16px 12px;
+            }
+
+            .header-section {
+                padding: 28px 18px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .step {
+                padding: 22px 18px;
+            }
+
+            .step-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+
+            .step h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Phần tiêu đề và chọn mẫu -->
+        <header class="header-section">
+            <h1>Hướng dẫn rút gọn link tạo QR Trái Tim 💖</h1>
+        </header>
+        <main class="step-container">
+
+            <article class="step">
+
+                <div class="step-header">
+                    <span class="step-badge">Bước 1</span>
+                    <h3>Kiểm tra trang web và Copy đường dẫn</h3>
+                </div>
+                <p>Nhấn vào nút <b>Xem trang</b> để xem trang vừa tạo, khi đã đúng ý nhấn nút <b>Copy link</b> để sao chép đường dẫn trang web.</p>
+                <img src="https://raw.githubusercontent.com/lovelys2/anh/refs/heads/main/qr/123a.webp" alt="Bước 1: Kiểm tra trang web" loading="lazy">
+            </article>
+
+        </main>
+        
+        <h2 class="section-title"></h2>
+        <!-- Phần hướng dẫn rút gọn link -->
+        <section>
+            <div class="step">
+                <div class="step-header">
+                    <span class="step-badge">Bước 2</span>
+                    <h3>Hướng dẫn rút gọn link</h3>
+                </div>
+                <div class="step-action">
+                    <a href="https://50b7af1e.devpan.pages.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-soft">Rút gọn link</a>
+                </div>
+
+                <ul class="sub-steps">
+                    <li><span>1</span> Nhấn vào nút <b>Paste</b> để dán đường dẫn gốc của bạn.</li>
+                    <li><span>2</span> Nhập <b>link bạn vừa copy</b> từ trang web vừa tạo.</li>
+                    <li><span>3</span> Ấn nút <b>Rút gọn link</b> để hệ thống tạo liên kết mới.</li>
+                    <li><span>4</span> <b>Copy link</b> vừa rút gọn và quay lại trang này và thực hiện theo các bước bên dưới.</li>
+                </ul>
+                <img src="https://raw.githubusercontent.com/lovelys2/anh/refs/heads/main/qr/rutgonlink.webp" alt="Hướng dẫn rút gọn link" loading="lazy">
+            </div>
+        </section>
+
+        <!-- Phần các bước thực hiện -->
+        <h2 class="section-title"></h2>
+
+        <main class="step-container">
+
+            <article class="step">
+                <div class="subtitle">Chọn một mẫu QR bên dưới để bắt đầu tạo mã nhé</div>
+                <div class="button-area">
+                    <a href="./QRlove1.html" class="btn btn-primary">Tạo QR Bó Hoa</a>
+                    <a href="./QRlove2.html" class="btn btn-primary">Tạo QR Thiệp</a>
+                    <span class="btn disabled" title="Đang cập nhật">Tạo QR V1 (Sắp ra mắt)</span>
+                    <span class="btn disabled" title="Đang cập nhật">Tạo QR V2 (Sắp ra mắt)</span>
+                    <span class="btn disabled" title="Đang cập nhật">Tạo QR V3 (Sắp ra mắt)</span>
+                </div>
+
+                <div class="step-header">
+                    <span class="step-badge">Bước 3</span>
+                    <h3>Mở trang tạo QR</h3>
+                </div>
+                <p>Truy cập công cụ tạo QR Code và <b>dán đường dẫn vừa copy</b> vào ô nhập nội dung.</p>
+                <img src="https://raw.githubusercontent.com/lovelys2/anh/refs/heads/main/qr/123b.webp" alt="Bước 3: Mở trang tạo QR" loading="lazy">
+
+                <div class="step-header">
+                    <span class="step-badge">Bước 4</span>
+                    <h3>Tải ảnh QR</h3>
+                </div>
+                <p>Nhấn nút <b>Tải QR</b> để lưu hình ảnh mã QR Code chất lượng cao về thiết bị của bạn.</p>
+                <img src="https://raw.githubusercontent.com/lovelys2/anh/refs/heads/main/qr/123c.webp" alt="Bước 5: Tạo và tải QR" loading="lazy">
+            </article>
+
+            <div class="success-step">
+                <h3>🎉 Chúc bạn thành công! 🎉</h3>
+                <p>Hãy quét thử mã QR bằng camera điện thoại trước khi gửi tặng người ấy nhé.</p>
+            </div>
+        </main>
+
+        <footer>
+            © 2026 Panbap · Devpan QR Guide. Crafted with love.
+        </footer>
+    </div>
+
+    <!-- Modal phóng to ảnh khi click -->
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+        <img id="lightbox-img" src="" alt="Phóng to hướng dẫn">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        document.querySelectorAll('.step img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
